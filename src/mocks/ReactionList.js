@@ -10,7 +10,7 @@ const reactions = {
     },
     {
       id: 6712,
-      emoji: "U+1F62D",
+      emoji: "🙄",
       count: 10,
     },
     {
