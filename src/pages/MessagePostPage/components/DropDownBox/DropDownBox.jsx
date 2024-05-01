@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./DropDownBox.module.scss";
-import arrowIconUrl from "../../../assets/icons/icon-arrow-bottom.svg";
+import arrowIconUrl from "../../../../assets/icons/icon-arrow-bottom.svg";
 
 function DropDownBox({ name, onChange, options }) {
   const [isDrop, setIsDrop] = useState(false);

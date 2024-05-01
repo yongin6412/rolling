@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DropDownBox from "./DropDownBox";
+import DropDownBox from "./DropDownBox/DropDownBox";
 import styles from "./MessagePostForm.module.scss";
 
 const INITIAL_VALUES = {
