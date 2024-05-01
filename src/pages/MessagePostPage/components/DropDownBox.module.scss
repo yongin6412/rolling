@@ -1,0 +1,33 @@
+@mixin boxStyle {
+  width: 320px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--grey-300);
+  background-color: var(--white);
+}
+
+.dropDownButton {
+  @include boxStyle();
+  text-align: left;
+  display: flex;
+  align-items: center;
+
+  /* Arrow Icon */
+  img {
+    width: 12px;
+    height: 6px;
+  }
+}
+
+.options {
+  @include boxStyle();
+  padding: 0;
+  position: fixed;
+
+  .option {
+    padding: 12px 16px;
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px solid var(--grey-100);
+  }
+}
