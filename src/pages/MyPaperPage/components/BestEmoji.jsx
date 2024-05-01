@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import mockData from "../../../mocks/recipientsId";
+import styles from "./BestEmoji.module.css";
 
 const BestEmoji = () => {
   const [emojis, setEmojis] = useState([]);
@@ -10,10 +11,10 @@ const BestEmoji = () => {
   console.log(emojis);
 
   return (
-    <div>
+    <div className={styles.emoji_container}>
       {emojis.map((emoji) => {
         return (
-          <div key={emoji.id}>
+          <div key={emoji.id} className={styles.badge_emoji}>
             <div>{emoji.emoji}</div>
             <div>{emoji.count}</div>
           </div>
