@@ -1,0 +1,32 @@
+.img {
+  position: absolute;
+  border: 1.4px solid var(--white);
+  border-radius: 100px;
+  width: 28px;
+  height: 28px;
+}
+
+.profileContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 76px;
+  height: 28px;
+}
+
+.span {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1.4px solid #e3e3e3;
+  width: 28px;
+  height: 28px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #484848;
+  background-color: var(--white);
+  z-index: 5;
+}
