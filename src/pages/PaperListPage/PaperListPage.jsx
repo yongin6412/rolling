@@ -1,5 +1,10 @@
+import RollingPaperCard from "./components/RollingPaperCard";
 function PaperListPage() {
-  return <div className="page-wrapper">PaperListPage</div>;
+  return (
+    <>
+      <RollingPaperCard />
+    </>
+  );
 }
 
 export default PaperListPage;
