@@ -4,7 +4,7 @@ import imgUrl from "./imgs/arrow_down.jpg";
 
 const EmojiListDropDown = () => {
   const [showEmojiList, setShowEmojiList] = useState(false);
-  const sliceList = mockData.results.slice(0, 8);
+  const sliceList = mockData.results.slice(3, 11); // 이모지 횟수 순서가 많은 순서대로 4번째부터 8개 출력되게 만듬
   const onClickEvent = () => {
     setShowEmojiList(!showEmojiList);
   };
@@ -15,7 +15,7 @@ const EmojiListDropDown = () => {
       {showEmojiList && (
         <div>
           {sliceList.map((list) => {
-            return <EmojiList list={list} />;
+            return <EmojiList key={list.id} list={list} />;
           })}
         </div>
       )}
