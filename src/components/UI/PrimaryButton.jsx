@@ -28,8 +28,12 @@ const Button = styled.button`
   }
 `;
 
-function PrimaryButton({ text }) {
-  return <Button type="submit">{text}</Button>;
+function PrimaryButton({ type = "submit", disable = false, children }) {
+  return (
+    <Button type={type} disabled={disable}>
+      {children}
+    </Button>
+  );
 }
 
 export default PrimaryButton;
