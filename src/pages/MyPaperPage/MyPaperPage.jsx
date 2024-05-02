@@ -1,12 +1,5 @@
-import EmojiListDropDown from "./components/EmojiListDropDown";
-
 function MyPaperPage() {
-  return (
-    <div className="page-wrapper">
-      MyPaperPage
-      <EmojiListDropDown />
-    </div>
-  );
+  return <div className="page-wrapper">MyPaperPage</div>;
 }
 
 export default MyPaperPage;
