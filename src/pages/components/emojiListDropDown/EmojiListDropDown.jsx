@@ -12,8 +12,13 @@ const EmojiListDropDown = () => {
 
   return (
     <div>
-      <img onClick={onClickEvent} src={imgUrl} alt="이모지드롭다운" />
-      <div className={styles.arrowImg}>
+      <img
+        className={styles.arrow_img}
+        onClick={onClickEvent}
+        src={imgUrl}
+        alt="이모지드롭다운"
+      />
+      <div className={styles.arrowDrop}>
         {showEmojiList && (
           <div className={styles.arrow_drop}>
             {sliceList.map((list) => {
