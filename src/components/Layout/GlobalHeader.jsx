@@ -1,4 +1,4 @@
-import headerLogoImg from "../../../src/assets/icons/header-logo.png";
+import headerLogoImg from "../../../src/assets/icons/header-logo.svg";
 import styles from "./GlobalHeader.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
