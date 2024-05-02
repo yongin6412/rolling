@@ -19,6 +19,18 @@
   position: absolute;
   top: 10px;
   right: 0;
+
+  @media (max-width: 768px) {
+    grid-template: 1fr 1fr / repeat(3, 1fr);
+    width: 248px;
+    height: 134px;
+  }
+
+  @media (max-width: 360px) {
+    width: 203px;
+    height: 98px;
+    padding: 16px;
+  }
 }
 
 .emoji_container {
