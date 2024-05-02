@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import mockData from "../../../mocks/recipientsId";
+import mockData from "../../../mocksYi/recipientsId";
 import styles from "./BestEmoji.module.css";
 
 const BestEmoji = () => {
