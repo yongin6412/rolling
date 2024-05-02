@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import mockData from "../../../mocksYi/recipientsId";
-import styles from "./BestEmoji.module.css";
+import styles from "./BestEmoji.module.scss";
 
 const BestEmoji = () => {
   const [emojis, setEmojis] = useState([]);
