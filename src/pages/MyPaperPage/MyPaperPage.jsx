@@ -1,12 +1,5 @@
-import BestEmoji from "./components/BestEmoji";
-
 function MyPaperPage() {
-  return (
-    <div className="page-wrapper">
-      MyPaperPage
-      <BestEmoji />
-    </div>
-  );
+  return <div className="page-wrapper">MyPaperPage</div>;
 }
 
 export default MyPaperPage;
