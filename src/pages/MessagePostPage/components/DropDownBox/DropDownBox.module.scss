@@ -11,6 +11,7 @@
   text-align: left;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   /* Arrow Icon */
   img {
@@ -22,7 +23,6 @@
 .options {
   @include boxStyle();
   padding: 0;
-  position: fixed;
 
   .option {
     padding: 12px 16px;
