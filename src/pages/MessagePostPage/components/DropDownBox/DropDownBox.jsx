@@ -18,10 +18,10 @@ function DropDownBox({ name, onChange, options }) {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <button className={styles.dropDownButton} onClick={toggleDropdown}>
-        <nav>{selected}</nav>
-        <img src={arrowIconUrl} />
+        <div>{selected}</div>
+        <img src={arrowIconUrl} className={styles.arrowIcon} />
       </button>
 
       {isDrop && (
@@ -40,7 +40,7 @@ function DropDownBox({ name, onChange, options }) {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
