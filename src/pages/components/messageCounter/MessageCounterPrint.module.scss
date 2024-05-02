@@ -1,0 +1,36 @@
+@mixin base-div {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--grey-900);
+}
+
+@mixin base-span {
+  font-weight: 400;
+}
+
+.post {
+  @include base-div;
+}
+
+.postSpan {
+  @include base-span;
+}
+
+.list {
+  @include base-div;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.listWhite {
+  @include base-div;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--grey-200);
+}
+
+.listSpan {
+  @include base-span;
+  font-weight: 400;
+}

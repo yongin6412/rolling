@@ -1,0 +1,17 @@
+.emoji_container {
+  display: flex;
+  gap: 10px;
+}
+
+.badge_emoji {
+  width: 66px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  background-color: rgba(0, 0, 0, 0.54);
+  color: white;
+  border: none;
+  border-radius: 32px;
+}
