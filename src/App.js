@@ -5,23 +5,27 @@ import PaperPostPage from "./pages/PaperPostPage/PaperPostPage";
 import MyPaperPage from "./pages/MyPaperPage/MyPaperPage";
 import PaperEditPage from "./pages/PaperEditPage/PaperEditPage";
 import MessagePostPage from "./pages/MessagePostPage/MessagePostPage";
+import GlobalHeader from "./components/Layout/GlobalHeader";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<HomePage />} />
-          <Route path="list" element={<PaperListPage />} />
-          <Route path="post">
-            <Route index element={<PaperPostPage />} />
-            <Route path=":postId" element={<MyPaperPage />} />
-            <Route path=":postId/edit" element={<PaperEditPage />} />
-            <Route path=":postId/message" element={<MessagePostPage />} />
+    <>
+      <BrowserRouter>
+        <GlobalHeader isCreateButton={true} />
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />} />
+            <Route path="list" element={<PaperListPage />} />
+            <Route path="post">
+              <Route index element={<PaperPostPage />} />
+              <Route path=":postId" element={<MyPaperPage />} />
+              <Route path=":postId/edit" element={<PaperEditPage />} />
+              <Route path=":postId/message" element={<MessagePostPage />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
