@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import mockData from "../../../mocksYi/ReactionList";
-import imgUrl from "./imgs/arrow_down.jpg";
+import imgUrl from "./imgs/arrow_down.svg";
 import styles from "./EmojiListDropDown.module.scss";
 
 const EmojiListDropDown = () => {
+  const [emojiData, setEmojiData] = useState([]);
+  const [dataSlice, setDataSlice] = useState(11);
   const [showEmojiList, setShowEmojiList] = useState(false);
-  const sliceList = mockData.results.slice(3, 11); // 이모지 횟수 순서가 많은 순서대로 4번째부터 8개 출력되게 만듬
+
   const onClickEvent = () => {
+    const dataCount = window.innerWidth <= 768 ? 9 : 11;
+    setDataSlice(dataCount);
     setShowEmojiList(!showEmojiList);
   };
+
+  useEffect(() => {
+    setEmojiData(mockData);
+  }, []);
 
   return (
     <div>
@@ -16,12 +24,12 @@ const EmojiListDropDown = () => {
         className={styles.arrow_img}
         onClick={onClickEvent}
         src={imgUrl}
-        alt="이모지드롭다운"
+        alt="이모지리스트드롭다운"
       />
       <div className={styles.arrowDrop}>
         {showEmojiList && (
           <div className={styles.arrow_drop}>
-            {sliceList.map((list) => {
+            {emojiData.results.slice(3, dataSlice).map((list) => {
               return <EmojiList key={list.id} list={list} />;
             })}
           </div>
