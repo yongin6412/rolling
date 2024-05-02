@@ -1,5 +1,6 @@
 .container {
   max-width: 720px;
+  margin-bottom: 60px;
 }
 
 .form {
@@ -37,6 +38,13 @@
 
   input[type="radio"] {
     display: none;
+  }
+
+  .errorMessage {
+    position: absolute;
+    color: var(--error);
+    padding: 10px;
+    cursor: default;
   }
 }
 

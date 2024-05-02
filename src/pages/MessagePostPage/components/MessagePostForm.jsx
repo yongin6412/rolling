@@ -31,6 +31,7 @@ const INITIAL_VALUES = {
 function MessagePostForm() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [showError, setShowError] = useState("none");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +44,12 @@ function MessagePostForm() {
     setIsDisabled(
       !(sender && content && sender.trim() !== "" && content.trim() !== "")
     );
+
+    if (!sender) {
+      setShowError("block");
+    } else {
+      setShowError("none");
+    }
   };
 
   const handleValueChange = (name, value) => {
@@ -72,10 +79,16 @@ function MessagePostForm() {
             onChange={handleInputChange}
             placeholder="이름을 입력해주세요."
           />
+          <div
+            style={{ display: `${showError}` }}
+            className={styles.errorMessage}
+          >
+            값을 입력해주세요.
+          </div>
         </div>
         <div>
           <h2>프로필 이미지</h2>
-          <ProfileImage name="profileImageURL" onChange={handleValuenChange} />
+          <ProfileImage name="profileImageURL" onChange={handleValueChange} />
         </div>
         <div>
           <h2>상대와의 관계</h2>
