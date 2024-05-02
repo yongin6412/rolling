@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DropDownBox from "./DropDownBox/DropDownBox";
+import ProfileImage from "./ProfileImage/ProfileImage";
 import styles from "./MessagePostForm.module.scss";
 
 const INITIAL_VALUES = {
@@ -27,6 +28,7 @@ const FONT = [
 
 function MessagePostForm() {
   const [values, setValues] = useState(INITIAL_VALUES);
+  const [submitActive, setSubmitActive] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +36,10 @@ function MessagePostForm() {
       ...prevValues,
       [name]: value,
     }));
+
+    if (values.sender && values.content) {
+      setSubmitActive(true);
+    }
   };
 
   const handleFormSubmit = (e) => {
@@ -41,21 +47,23 @@ function MessagePostForm() {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <div className={styles.form}>
-        <div className={styles.sender}>
+    <div className={styles.container}>
+      <form onSubmit={handleFormSubmit} className={styles.form}>
+        <div>
           <h2>From.</h2>
           <input
             name="sender"
+            type="text"
             value={values.sender}
             onChange={handleInputChange}
             placeholder="이름을 입력해주세요."
           />
         </div>
-        <div className={styles.profileImg}>
+        <div>
           <h2>프로필 이미지</h2>
+          <ProfileImage name="profileImageURL" onChange={handleInputChange} />
         </div>
-        <div className={styles.relationship}>
+        <div>
           <h2>상대와의 관계</h2>
           <DropDownBox
             name="relationship"
@@ -63,10 +71,10 @@ function MessagePostForm() {
             options={RELATIONSHIP}
           />
         </div>
-        <div className={styles.content}>
+        <div>
           <h2>내용을 입력해 주세요</h2>
         </div>
-        <div className={styles.font}>
+        <div>
           <h2>폰트 선택</h2>
           <DropDownBox
             name="font"
@@ -75,8 +83,8 @@ function MessagePostForm() {
           />
         </div>
         <button type="submit">생성하기</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
