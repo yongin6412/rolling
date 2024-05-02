@@ -1,16 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropDownBox from "./DropDownBox/DropDownBox";
 import ProfileImage from "./ProfileImage/ProfileImage";
+import ContentEditor from "./ContentEditor/ContentEditor";
+import PrimaryButton from "../../../components/UI/PrimaryButton";
 import styles from "./MessagePostForm.module.scss";
-
-const INITIAL_VALUES = {
-  recipientId: null,
-  sender: "",
-  profileImageURL: "",
-  relationship: "",
-  content: "",
-  font: "",
-};
 
 const RELATIONSHIP = [
   { id: 1, value: "친구" },
@@ -26,9 +19,18 @@ const FONT = [
   { id: 4, value: "나눔손글씨 손편지체" },
 ];
 
+const INITIAL_VALUES = {
+  recipientId: null,
+  sender: "",
+  profileImageURL: "",
+  relationship: RELATIONSHIP[0].value,
+  content: "",
+  font: FONT[0].value,
+};
+
 function MessagePostForm() {
   const [values, setValues] = useState(INITIAL_VALUES);
-  const [submitActive, setSubmitActive] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,14 +39,26 @@ function MessagePostForm() {
       [name]: value,
     }));
 
-    if (values.sender && values.content) {
-      setSubmitActive(true);
-    }
+    const { sender, content } = { ...values, [name]: value };
+    setIsDisabled(
+      !(sender && content && sender.trim() !== "" && content.trim() !== "")
+    );
+  };
+
+  const handleValueChange = (name, value) => {
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    setIsDisabled(true);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -61,7 +75,7 @@ function MessagePostForm() {
         </div>
         <div>
           <h2>프로필 이미지</h2>
-          <ProfileImage name="profileImageURL" onChange={handleInputChange} />
+          <ProfileImage name="profileImageURL" onChange={handleValuenChange} />
         </div>
         <div>
           <h2>상대와의 관계</h2>
@@ -73,6 +87,7 @@ function MessagePostForm() {
         </div>
         <div>
           <h2>내용을 입력해 주세요</h2>
+          <ContentEditor name="content" onChange={handleValueChange} />
         </div>
         <div>
           <h2>폰트 선택</h2>
@@ -82,7 +97,9 @@ function MessagePostForm() {
             options={FONT}
           />
         </div>
-        <button type="submit">생성하기</button>
+        <div>
+          <PrimaryButton disable={isDisabled}>생성하기</PrimaryButton>
+        </div>
       </form>
     </div>
   );
