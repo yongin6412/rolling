@@ -1,6 +1,7 @@
 import { useState } from "react";
-import mockData from "../../../mocks(yi)/ReactionList";
+import mockData from "../../../mocksYi/ReactionList";
 import imgUrl from "./imgs/arrow_down.jpg";
+import styles from "./EmojiListDropDown.module.scss";
 
 const EmojiListDropDown = () => {
   const [showEmojiList, setShowEmojiList] = useState(false);
@@ -12,20 +13,22 @@ const EmojiListDropDown = () => {
   return (
     <div>
       <img onClick={onClickEvent} src={imgUrl} alt="이모지드롭다운" />
-      {showEmojiList && (
-        <div>
-          {sliceList.map((list) => {
-            return <EmojiList key={list.id} list={list} />;
-          })}
-        </div>
-      )}
+      <div className={styles.arrowImg}>
+        {showEmojiList && (
+          <div className={styles.arrow_drop}>
+            {sliceList.map((list) => {
+              return <EmojiList key={list.id} list={list} />;
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 const EmojiList = ({ list }) => {
   return (
-    <div>
+    <div className={styles.emoji_container}>
       <div>{list.emoji}</div>
       <div>{list.count}</div>
     </div>
