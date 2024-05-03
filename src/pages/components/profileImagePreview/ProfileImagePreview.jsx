@@ -1,9 +1,6 @@
 import React from "react";
-import idMock from "../../../mocks/recipientsId";
 import styles from "../profileImagePreview/ProfileImagePreview.module.scss";
-export default function ProfileImagePreview() {
-  const messageCount = idMock.messageCount;
-  const recentMessages = idMock.recentMessages;
+function ProfileImagePreview({ messageCount, recentMessages }) {
   let isCountVisibility = false;
   if (messageCount > 3) {
     isCountVisibility = true;
@@ -35,3 +32,5 @@ export default function ProfileImagePreview() {
     </>
   );
 }
+
+export default ProfileImagePreview;
