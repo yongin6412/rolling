@@ -1,8 +1,8 @@
-import RollingPaperCard from "./components/RollingPaperCard";
+import CardList from "./components/cardList/CardList";
 function PaperListPage() {
   return (
     <>
-      <RollingPaperCard />
+      <CardList />
     </>
   );
 }

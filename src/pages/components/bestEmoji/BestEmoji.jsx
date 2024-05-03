@@ -8,7 +8,6 @@ const BestEmoji = () => {
   useEffect(() => {
     setEmojis(mockData.topReactions);
   }, []);
-  console.log(emojis);
 
   return (
     <div className={styles.emoji_container}>

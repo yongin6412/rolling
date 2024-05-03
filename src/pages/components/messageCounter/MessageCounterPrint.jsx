@@ -1,7 +1,7 @@
 import React from "react";
-import idMock from "../../../mocks/recipientsId.js";
 import styles from "./MessageCounterPrint.module.scss";
 export default function MessageCounterPrint({
+  messageCount,
   isBackgroundImage = false,
   page = "post",
 }) {
@@ -16,7 +16,6 @@ export default function MessageCounterPrint({
     styleDiv = styles.post;
     styleSpan = styles.postSpan;
   }
-  const messageCount = idMock.messageCount;
   return (
     <div className={styleDiv}>
       {messageCount}
