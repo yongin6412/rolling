@@ -24,9 +24,15 @@
 - `/MyPaperPage` : 롤링페이퍼 조회 페이지
 - `/MessagePostPage` : 메세지카드 생성 페이지
 
+<br>
+
+## API
+[컴포넌트 별 필요한 API 정리](https://www.notion.so/sprint-part2-10/API-385ccff1c1c3489b8851e86cbde0b38f?pvs=4)
+
 
 <br>
 
 ## 기타 파일
 
 - `/.prettierrc` : 프리티어 정의
+  
