@@ -1,25 +1,18 @@
 import React from "react";
 import styles from "./MessageCounterPrint.module.scss";
+import Text from "../../../components/UI/text/Text";
+
 export default function MessageCounterPrint({
   messageCount,
   isBackgroundImage = false,
-  page = "post",
 }) {
-  let styleDiv;
-  let styleSpan;
-  if (page === "list") {
-    isBackgroundImage
-      ? (styleDiv = styles.listWhite)
-      : (styleDiv = styles.list);
-    styleSpan = styles.listSpan;
-  } else {
-    styleDiv = styles.post;
-    styleSpan = styles.postSpan;
-  }
+  const textStyle = isBackgroundImage ? { color: "#fff" } : {};
   return (
-    <div className={styleDiv}>
+    <Text font="bold16" style={textStyle}>
       {messageCount}
-      <span className={styleSpan}>명이 작성했어요!</span>
-    </div>
+      <Text font="regular16" style={textStyle}>
+        명이 작성했어요!
+      </Text>
+    </Text>
   );
 }

@@ -10,6 +10,7 @@ function RollingPaperCard({
   recentMessages,
   backgroundImage,
   backgroundColor,
+  topReactions,
 }) {
   let color;
   const Style = {
@@ -36,7 +37,7 @@ function RollingPaperCard({
           isBackgroundImage={backgroundImage}
         />
         <hr className={styles.hr} />
-        <BestEmoji />
+        <BestEmoji topReactions={topReactions} />
       </div>
     </>
   );

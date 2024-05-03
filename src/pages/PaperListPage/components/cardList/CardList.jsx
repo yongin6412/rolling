@@ -3,26 +3,31 @@ import RollingPaperCard from "../rollingPaperCard/RollingPaperCard";
 import { getRecipientsList } from "../../../../services/api";
 import styles from "./CardList.module.scss";
 import { useNavigate } from "react-router-dom";
-function CardList() {
+function CardList({ order }) {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
   const handleLoad = async () => {
-    const recipientsList = await getRecipientsList();
-    setList(recipientsList);
+    const { results } = await getRecipientsList();
+    setList(results);
   };
 
   useEffect(() => {
     handleLoad();
   }, []);
+
+  if (order === "desc") {
+    list.sort((a, b) => b.messageCount - a.messageCount);
+  }
   const navigateToPostPage = (id) => {
     navigate(`/post/${id}`);
   };
+  console.log(list);
   return (
     <>
       <div className={styles.list}>
-        {!list.results && <span>가져오기 실패</span>}
-        {list.results &&
-          list.results.map((el) => (
+        {!list && <span>가져오기 실패</span>}
+        {list &&
+          list.slice(0, 4).map((el) => (
             <div
               onClick={() => navigateToPostPage(el.id)}
               key={el.id}
@@ -34,6 +39,7 @@ function CardList() {
                 recentMessages={el.recentMessages}
                 backgroundImage={el.backgroundImageURL}
                 backgroundColor={el.backgroundColor}
+                topReactions={el.topReactions}
               />
             </div>
           ))}

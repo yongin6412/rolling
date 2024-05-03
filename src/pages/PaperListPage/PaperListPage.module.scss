@@ -1,0 +1,24 @@
+.container {
+  max-width: 1200px;
+}
+
+h1 {
+  font-weight: 700px;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.hot {
+  margin-bottom: 50px;
+}
+
+.new {
+  margin-bottom: 64px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}

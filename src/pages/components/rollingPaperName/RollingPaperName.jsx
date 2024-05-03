@@ -1,16 +1,12 @@
 import React from "react";
 import styles from "./RollingPaperName.module.scss";
+import Text from "../../../components/UI/text/Text";
 const RollingPaperName = ({ name, isBackgroundImage }) => {
-  let color = null;
-  //console.log(isBackgroundImage);
-  isBackgroundImage === null ? (color = "#181818") : (color = "#fff");
-  const style = {
-    color,
-  };
+  const textStyle = isBackgroundImage ? { color: "#fff" } : {};
   return (
-    <div className={styles.text} style={style}>
+    <Text font="bold24" style={textStyle}>
       To. {name}
-    </div>
+    </Text>
   );
 };
 

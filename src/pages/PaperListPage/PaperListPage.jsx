@@ -1,9 +1,28 @@
 import CardList from "./components/cardList/CardList";
+import styles from "./PaperListPage.module.scss";
+import PrimaryButton from "../../components/UI/PrimaryButton";
+import Text from "../../components/UI/text/Text";
 function PaperListPage() {
+  const style = {
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
-    <>
-      <CardList />
-    </>
+    <div className="page-wrapper" style={style}>
+      <div className={styles.container}>
+        <div className={styles.hot}>
+          <h1>인기 롤링 페이퍼</h1>
+          <CardList order="desc" />
+        </div>
+        <div className={styles.new}>
+          <h1>최근에 만든 롤링 페이퍼</h1>
+          <CardList />
+        </div>
+        <div className={styles.buttonContainer}>
+          <PrimaryButton>나도 만들어 보기</PrimaryButton>
+        </div>
+      </div>
+    </div>
   );
 }
 
