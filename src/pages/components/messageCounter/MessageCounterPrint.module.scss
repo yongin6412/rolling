@@ -15,6 +15,7 @@
 
 .postSpan {
   @include base-span;
+  color: var(--grey-900);
 }
 
 .list {
@@ -33,4 +34,10 @@
 .listSpan {
   @include base-span;
   font-weight: 400;
+}
+
+.listSpanWhite {
+  @include base-div;
+  font-weight: 400;
+  color: var(--grey-200);
 }
