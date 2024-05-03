@@ -21,7 +21,7 @@ function DropDownBox({ name, onChange, options }) {
     <div className={styles.container}>
       <button className={styles.dropDownButton} onClick={toggleDropdown}>
         <div>{selected}</div>
-        <img src={arrowIconUrl} className={styles.arrowIcon} />
+        <img alt="옵션 선택" src={arrowIconUrl} className={styles.arrowIcon} />
       </button>
 
       {isDrop && (
