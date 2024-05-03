@@ -1,21 +1,28 @@
 import { useEffect, useState } from "react";
-import mockData from "../../../mocksYi/ReactionList";
 import imgUrl from "./imgs/arrow_down.svg";
 import styles from "./EmojiListDropDown.module.scss";
+import { getReactions } from "../../../services/api";
 
-const EmojiListDropDown = () => {
+// MyPaperPage에서 postId(===recipientId)를 받아와서 사용
+const EmojiListDropDown = ({ recipientId }) => {
   const [emojiData, setEmojiData] = useState([]);
   const [dataSlice, setDataSlice] = useState(11);
   const [showEmojiList, setShowEmojiList] = useState(false);
 
   const onClickEvent = () => {
+    // 화면크기에 맞춰서 데이터 자르기
     const dataCount = window.innerWidth <= 768 ? 9 : 11;
     setDataSlice(dataCount);
     setShowEmojiList(!showEmojiList);
   };
 
+  const handleLoad = async (recipientId) => {
+    const getData = await getReactions(recipientId, dataSlice);
+    setEmojiData(getData);
+  };
+
   useEffect(() => {
-    setEmojiData(mockData);
+    handleLoad(recipientId);
   }, []);
 
   return (
@@ -43,7 +50,7 @@ const EmojiList = ({ list }) => {
   return (
     <div className={styles.emoji_container}>
       <div>{list.emoji}</div>
-      <div>{list.count}</div>
+      <div className={styles.count}>{list.count}</div>
     </div>
   );
 };

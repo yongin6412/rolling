@@ -1,3 +1,5 @@
+@import url("../../../styles/global.scss");
+
 .arrow_img {
   cursor: pointer;
 }
@@ -10,8 +12,8 @@
   display: grid;
   grid-template: 1fr 1fr / repeat(4, 1fr);
   gap: 10px;
-  background-color: white;
-  border: 1px solid rgba(182, 182, 182, 1);
+  background-color: var(--white);
+  border: 1px solid #b6b6b6;
   width: 312px;
   height: 134px;
   border-radius: 8px;
@@ -19,6 +21,20 @@
   position: absolute;
   top: 10px;
   right: 0;
+
+  .emoji_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    color: var(--white);
+    border-radius: 32px;
+    background-color: #0000008a;
+  }
+
+  .count {
+    color: var(--white);
+  }
 
   @media (max-width: 768px) {
     grid-template: 1fr 1fr / repeat(3, 1fr);
@@ -31,14 +47,4 @@
     height: 98px;
     padding: 16px;
   }
-}
-
-.emoji_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3px;
-  color: white;
-  border-radius: 32px;
-  background-color: rgba(0, 0, 0, 0.54);
 }
