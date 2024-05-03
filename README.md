@@ -3,6 +3,7 @@
 - `코드잇 부트캠프 스프린트 프론트엔드 6기`: Part2 10팀 프로젝트
 - #### [노션](https://sprint-part2-10.notion.site/e0ec29ff878c43a29ad085250d0d2be8?pvs=4)
 - #### [임시 배포 사이트](https://rolling-main.netlify.app/) (main브랜치 연동)
+- #### [컴포넌트 별 필요한 API 정리](https://www.notion.so/sprint-part2-10/API-385ccff1c1c3489b8851e86cbde0b38f?pvs=4)
 <br>
 
 ## `/src` 구조
@@ -23,11 +24,6 @@
 - `/PaperEditPage` : 롤링페이퍼 편집 페이지
 - `/MyPaperPage` : 롤링페이퍼 조회 페이지
 - `/MessagePostPage` : 메세지카드 생성 페이지
-
-<br>
-
-## API
-[컴포넌트 별 필요한 API 정리](https://www.notion.so/sprint-part2-10/API-385ccff1c1c3489b8851e86cbde0b38f?pvs=4)
 
 
 <br>
