@@ -18,9 +18,9 @@ function App() {
             <Route path="list" element={<PaperListPage />} />
             <Route path="post">
               <Route index element={<PaperPostPage />} />
-              <Route path=":postId" element={<MyPaperPage />} />
-              <Route path=":postId/edit" element={<PaperEditPage />} />
-              <Route path=":postId/message" element={<MessagePostPage />} />
+              <Route path=":id" element={<MyPaperPage />} />
+              <Route path=":id/edit" element={<PaperEditPage />} />
+              <Route path=":id/message" element={<MessagePostPage />} />
             </Route>
           </Route>
         </Routes>
