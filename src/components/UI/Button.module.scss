@@ -1,0 +1,49 @@
+.button {
+  background: var(--purple-600);
+  color: var(--white);
+
+  &:hover {
+    background: var(--purple-700);
+  }
+
+  &:focus {
+    background: var(--purple-900);
+    border: 2px solid #5603a7;
+  }
+
+  &:disabled {
+    background: var(--grey-300);
+  }
+
+  &:pressed {
+    background: var(--purple-800);
+  }
+}
+
+.Small {
+  width: 122px;
+  height: 40px;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.Meidum {
+  width: 208px;
+  height: 56px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.fullWidth {
+  width: 100%;
+}
