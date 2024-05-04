@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 // 자주 사용하는 크기 관련 스타일 변수 설정
 const Size = {
   sm: styles.Small,
-  md: styles.Meidum,
+  md: styles.Medium,
   lg: styles.Large,
 };
 
