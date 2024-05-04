@@ -9,6 +9,10 @@ function PaperListPage() {
     alignItems: "center",
   };
 
+  const handlePage = () => {
+    navigate("/post");
+  };
+
   return (
     <div className="page-wrapper" style={style}>
       <div className={styles.container}>
@@ -21,7 +25,7 @@ function PaperListPage() {
           <CardList />
         </div>
         <div className={styles.buttonContainer}>
-          <PrimaryButton>나도 만들어 보기</PrimaryButton>
+          <PrimaryButton onClick={handlePage}>나도 만들어 보기</PrimaryButton>
         </div>
       </div>
     </div>
