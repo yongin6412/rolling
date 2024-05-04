@@ -33,8 +33,11 @@ export async function getMessages(recipientId) {
 }
 
 // GET : 롤링페이퍼 헤더 - 이모지 정보
-export async function getReactions(recipientId) {
-  return await GET(`${BASE_URL}/recipients/${recipientId}/reactions/`);
+// 이모지 아이콘 화면크기에 맞춰서 가져오는 limit변경
+export async function getReactions(recipientId, dataSlice = 8) {
+  return await GET(
+    `${BASE_URL}/recipients/${recipientId}/reactions/?limit=${dataSlice}`
+  );
 }
 
 // GET : 프로필 or 배경 이미지
