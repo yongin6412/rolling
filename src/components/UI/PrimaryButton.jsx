@@ -16,6 +16,7 @@ function PrimaryButton({
   disable = false,
   WidthMax = false,
   children,
+  onClick,
 }) {
   const boxSize = Size[size];
   const fullWidth = WidthMax ? styles.fullWidth : "";
@@ -25,6 +26,7 @@ function PrimaryButton({
       className={`${styles.button} ${boxSize} ${fullWidth}`}
       type={type}
       disabled={disable}
+      onClick={onClick}
     >
       {children}
     </button>

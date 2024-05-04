@@ -18,8 +18,8 @@ async function GET(URL) {
 }
 
 // GET : 롤링페이퍼 목록
-export async function getRecipientsList() {
-  return await GET(`${BASE_URL}/recipients/`);
+export async function getRecipientsList({ limit = 4, sort = "" } = {}) {
+  return await GET(`${BASE_URL}/recipients/?limit=${limit}&sort=${sort}`);
 }
 
 // GET : 생성된 롤링페이퍼 정보
@@ -44,4 +44,8 @@ export async function getReactions(recipientId, dataSlice = 8) {
 export async function getImages(imgType) {
   const fetchData = await GET(`${IMG_URL}/${imgType}/`);
   return fetchData.imageUrls;
+}
+
+export async function getCustomRecipient(url) {
+  return await GET(url);
 }

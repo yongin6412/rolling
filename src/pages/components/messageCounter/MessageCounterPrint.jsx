@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./MessageCounterPrint.module.scss";
 import Text from "../../../components/UI/text/Text";
 
 export default function MessageCounterPrint({
