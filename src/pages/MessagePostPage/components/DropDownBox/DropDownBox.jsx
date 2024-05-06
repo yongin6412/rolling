@@ -4,17 +4,19 @@ import arrowIconUrl from "../../../../assets/icons/icon-arrow-bottom.svg";
 
 function DropDownBox({ name, onChange, options }) {
   const [isDrop, setIsDrop] = useState(false);
-  const [selected, setSelected] = useState(options[0].value);
+  const [selected, setSelected] = useState(options[0]);
 
-  const toggleDropdown = () => {
+  const toggleDropdown = (e) => {
+    e.preventDefault();
     setIsDrop(!isDrop);
   };
 
   const handleOptionChange = (e) => {
-    const selectedValue = e.target.value;
-    setSelected(selectedValue);
+    e.preventDefault();
+    const { value } = e.target;
+    setSelected(value);
     setIsDrop(false);
-    onChange(e);
+    onChange(name, value);
   };
 
   return (
@@ -26,16 +28,16 @@ function DropDownBox({ name, onChange, options }) {
 
       {isDrop && (
         <div className={styles.options}>
-          {options.map((option) => (
-            <label key={option.id} className={styles.option}>
+          {options.map((option, index) => (
+            <label key={index} className={styles.option}>
               <input
                 name={name}
                 type="radio"
-                value={option.value}
-                checked={selected === option.value}
+                value={option}
+                checked={selected === option}
                 onChange={handleOptionChange}
               />
-              {option.value}
+              {option}
             </label>
           ))}
         </div>

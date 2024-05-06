@@ -47,6 +47,10 @@
     cursor: default;
     z-index: -1;
   }
+
+  .submitButton {
+    margin-top: 62px;
+  }
 }
 
 /* Mobile */
@@ -54,8 +58,15 @@
   .container {
     max-width: 320px;
   }
+
+  .submitButton {
+    margin-top: 206px;
+  }
 }
 
 /* Tablet */
-@media (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .submitButton {
+    margin-top: 52px;
+  }
 }
