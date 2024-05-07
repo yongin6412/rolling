@@ -56,11 +56,16 @@ export async function POST(URL, formData) {
   try {
     const response = await fetch(URL, {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json", // JSON 데이터를 보내는 경우
+      },
+      body: JSON.stringify(formData),
     });
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
+    const body = await response.json();
+    return body;
   } catch (error) {
     console.error("Failed to post data : ", error);
     throw error;
@@ -69,7 +74,8 @@ export async function POST(URL, formData) {
 
 // POST : 롤링페이퍼 생성 폼
 export async function postPaper(formData) {
-  await POST(`${BASE_URL}/recipients/`, formData);
+  const fetchData = await POST(`${BASE_URL}/recipients/`, formData);
+  return fetchData;
 }
 
 // POST : 메시지카드 생성 폼
