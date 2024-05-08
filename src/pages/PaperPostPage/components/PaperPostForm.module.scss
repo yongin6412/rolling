@@ -1,0 +1,68 @@
+.postForm {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  button {
+    margin: 80px 0 60px;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 767px) {
+    width: 360px;
+    margin: 0 2px;
+  }
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sendTo {
+  color: var(--black);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  border: none;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 50px;
+}
+
+.textBox > .title {
+  color: var(--black);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 0;
+}
+
+.textBox > .subTitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--grey-500);
+}
+
+.toggleBox {
+  display: flex;
+  flex-direction: row;
+  margin: 24px 0;
+}
+
+.errorMessage {
+  color: var(--error);
+  cursor: default;
+}
