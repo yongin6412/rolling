@@ -1,0 +1,82 @@
+@import url("../../../styles/global.scss");
+
+.share_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.share_btn {
+  border: 1px solid var(--grey-300);
+  border-radius: 6px;
+  width: 56px;
+  height: 36px;
+  padding: 5px;
+
+  @media (max-width: 500px) {
+    width: 36px;
+    height: 32px;
+    padding: 0;
+  }
+}
+
+.outside_container {
+  position: relative;
+}
+
+.outside_share {
+  width: 140px;
+  height: 120px;
+  border: 1px solid var(--grey-300);
+  border-radius: 8px;
+  padding: 10px 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+}
+
+.share_list {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--grey-900);
+  padding: 12px 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--grey-100);
+  }
+}
+
+.toast_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: #000000cc;
+  border-radius: 8px;
+  width: 524px;
+  height: 64px;
+  position: absolute;
+  bottom: 50px;
+
+  @media (max-width: 500px) {
+    width: 320px;
+    bottom: 100px;
+  }
+}
+
+.toast_message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 16px;
+}
+
+.closebtn {
+  cursor: pointer;
+}
