@@ -4,6 +4,7 @@ import ProfileImagePreview from "../../../components/profileImagePreview/Profile
 import MessageCounter from "../../../components/messageCounter/MessageCounterPrint";
 import styles from "./RollingPaperCard.module.scss";
 import BestEmoji from "../../../components/bestEmoji/BestEmoji";
+
 function RollingPaperCard({
   name,
   messageCount,
@@ -11,19 +12,27 @@ function RollingPaperCard({
   backgroundImage,
   backgroundColor,
   topReactions,
+  isPhone,
 }) {
-  let color;
-  const Style = {
-    backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
-    backgroundColor: `${backgroundColor}`,
-    color,
+  const style = {
+    backgroundImage: backgroundImage
+      ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54)), url(${backgroundImage})`
+      : {},
+    backgroundSize: backgroundImage ? "cover" : {},
   };
 
   return (
     <>
-      <div className={styles.card} style={Style}>
+      <div
+        className={`${styles.card} ${styles[backgroundColor]}`}
+        style={style}
+      >
         <div className={styles.name}>
-          <RollingPaperName name={name} isBackgroundImage={backgroundImage} />
+          <RollingPaperName
+            name={name}
+            isBackgroundImage={backgroundImage}
+            isPhone={isPhone}
+          />
         </div>
         <div className={styles.image}>
           <ProfileImagePreview
@@ -35,6 +44,7 @@ function RollingPaperCard({
           page="list"
           messageCount={messageCount}
           isBackgroundImage={backgroundImage}
+          isPhone={isPhone}
         />
         <hr className={styles.hr} />
         <BestEmoji topReactions={topReactions} />
