@@ -5,25 +5,20 @@ import {
   getRecipientsList,
 } from "../../../../services/api";
 import styles from "./CardList.module.scss";
-import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss/navigation";
 import "swiper/scss";
 
-function CardList({ order = "", isMobile, isPhone }) {
-  const [list, setList] = useState([]);
+function CardList({ order = "", isMobile, isPhone, onClick}) {
+  const [cardList, setCardList] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [prevUrl, setPrevUrl] = useState(null);
 
   const nextButtonRef = useRef(null);
   const prevButtonRef = useRef(null);
   const swiperRef = useRef(null);
-  const navigate = useNavigate();
 
-  const navigateToPostPage = (id) => {
-    navigate(`/post/${id}`);
-  };
 
   const handleLoad = useCallback(async () => {
     const { results, next, previous } = await getRecipientsList({
@@ -31,7 +26,7 @@ function CardList({ order = "", isMobile, isPhone }) {
     });
     setPrevUrl(previous);
     setNextUrl(next);
-    setList(results);
+    setCardList(results);
   }, [order]);
 
   useEffect(() => {
@@ -42,29 +37,28 @@ function CardList({ order = "", isMobile, isPhone }) {
     swiperRef.current = swiper;
   };
 
-  // 다음 버튼 클릭 시 기존 배열에 추가
-  const loadMore = async () => {
+  const handleNextButtonClick = async () => {
     if (nextUrl) {
-      const { next, previous, results } = await getCustomRecipient(nextUrl);
+      const { next, previous, results: fetchedCards } = await getCustomRecipient(nextUrl);
       setNextUrl(next);
       setPrevUrl(previous);
-      setList((prev) => {
-        const newData = results.filter(
-          (newItem) => !prev.some((item) => item.id === newItem.id)
-        );
-        return [...prev, ...newData];
+      setCardList((currentCardList) => {
+          const newCards = fetchedCards.filter(
+              (newCard) => !currentCardList.some((existingCard) => existingCard.id === newCard.id)
+          );
+          return [...currentCardList, ...newCards];
       });
       if (!isMobile) {
-        setTimeout(() => {
-          swiperRef.current.update();
-          swiperRef.current.slideNext();
-        }, 100);
+          setTimeout(() => {
+              swiperRef.current.update();
+              swiperRef.current.slideNext();
+          }, 100);
       }
-    }
-  };
+  }
+}
 
   // 이전 슬라이드
-  const handlePrev = async () => {
+  const handlePrevButtonClick = async () => {
     const { next, previous } = await getCustomRecipient(prevUrl);
     setNextUrl(next);
     setPrevUrl(previous);
@@ -72,7 +66,7 @@ function CardList({ order = "", isMobile, isPhone }) {
   };
 
   const handleReachEnd = () => {
-    loadMore();
+    handleNextButtonClick();
   };
 
   const swiperSettings = {
@@ -96,22 +90,22 @@ function CardList({ order = "", isMobile, isPhone }) {
   };
 
   return (
-    <>
+    <>{cardList ? 
       <div className={styles.cardList}>
         <Swiper {...swiperSettings}>
-          {list.map((el) => (
+          {cardList.map((cardInfo) => (
             <SwiperSlide
-              onClick={() => navigateToPostPage(el.id)}
-              key={el.id}
+              onClick={() => onClick(cardInfo.id)}
+              key={cardInfo.id}
               className={styles.swiperSlide}
             >
               <RollingPaperCard
-                name={el.name}
-                messageCount={el.messageCount}
-                recentMessages={el.recentMessages}
-                backgroundImage={el.backgroundImageURL}
-                backgroundColor={el.backgroundColor}
-                topReactions={el.topReactions}
+                name={cardInfo.name}
+                messageCount={cardInfo.messageCount}
+                recentMessages={cardInfo.recentMessages}
+                backgroundImage={cardInfo.backgroundImageURL}
+                backgroundColor={cardInfo.backgroundColor}
+                topReactions={cardInfo.topReactions}
                 isPhone={isPhone}
               />
             </SwiperSlide>
@@ -122,21 +116,21 @@ function CardList({ order = "", isMobile, isPhone }) {
           <>
             {nextUrl && (
               <button
-                onClick={loadMore}
+                onClick={handleNextButtonClick}
                 ref={nextButtonRef}
                 className={styles.customSwiperButtonNext}
               />
             )}
             {prevUrl && (
               <button
-                onClick={handlePrev}
+                onClick={handlePrevButtonClick}
                 ref={prevButtonRef}
                 className={styles.customSwiperButtonPrev}
               />
             )}
           </>
         )}
-      </div>
+      </div>:<div className={styles.initializeCardList}/>}
     </>
   );
 }

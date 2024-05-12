@@ -30,7 +30,7 @@ function RollingPaperCard({
         <div className={styles.name}>
           <RollingPaperName
             name={name}
-            isBackgroundImage={backgroundImage}
+            backgroundImage={backgroundImage}
             isPhone={isPhone}
           />
         </div>
@@ -41,9 +41,8 @@ function RollingPaperCard({
           />
         </div>
         <MessageCounter
-          page="list"
           messageCount={messageCount}
-          isBackgroundImage={backgroundImage}
+          backgroundImage={backgroundImage}
           isPhone={isPhone}
         />
         <hr className={styles.hr} />

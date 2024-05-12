@@ -3,10 +3,10 @@ import Text from "../../../components/UI/text/Text";
 
 export default function MessageCounterPrint({
   messageCount,
-  isBackgroundImage = false,
+  backgroundImage = null,
   isPhone,
 }) {
-  const textStyle = isBackgroundImage ? { color: "#fff" } : {};
+  const textStyle = backgroundImage ? { color: "#fff" } : {};
 
   let font = {
     count: "bold16",

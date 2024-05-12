@@ -29,6 +29,10 @@
   width: 100%;
 }
 
+.initializeCardList {
+  height: 260px;
+}
+
 @media (min-width: 360px) and (max-width: 767px) {
   .swiperSlide {
     width: 208px !important;
