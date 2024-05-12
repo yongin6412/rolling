@@ -22,11 +22,52 @@
   right: 356px;
   width: auto;
   height: 40px;
-  border: 1px solid #cccccc;
+  border: 1px solid var(--grey-300);
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 16px;
   font-weight: 600;
+  background-color: var(--white);
+  overflow: hidden;
+
+  .buttonText {
+    text-align: center;
+    position: relative;
+    transition: all 1s ease;
+  }
+
+  &:active {
+    background-color: var(--purple-600);
+
+    .buttonText {
+      color: var(--white);
+    }
+  }
+
+  &:hover {
+    .buttonText {
+      color: var(--white);
+      font-weight: 500;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 200px;
+    transform: rotate(-30deg);
+    background-color: var(--purple-600);
+    transition: all 0.4s ease;
+  }
+
+  &:hover::before {
+    top: -250%;
+    left: -80%;
+  }
 }
 .hidden {
   display: none;

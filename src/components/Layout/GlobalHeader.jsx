@@ -1,12 +1,16 @@
 import headerLogoImg from "../../../src/assets/icons/header-logo.svg";
-import styles from "./GlobalHeader.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import styles from "./GlobalHeader.module.scss";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
-function GlobalHeader({ isCreateButton }) {
+function GlobalHeader() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isPostPage = location.pathname.startsWith("/post"); // post 페이지인지 여부 확인
+
   const goToPost = () => {
     navigate("/post");
   };
+
   return (
     <div className={styles.header}>
       <Link to="/">
@@ -17,10 +21,10 @@ function GlobalHeader({ isCreateButton }) {
         />
       </Link>
       <button
-        className={isCreateButton ? styles.createButton : styles.hidden}
+        className={!isPostPage ? styles.createButton : styles.hidden} // isPostPage가 false이면 버튼 표시
         onClick={goToPost}
       >
-        롤링 페이퍼 만들기
+        <span class={styles.buttonText}>롤링 페이퍼 만들기</span>
       </button>
     </div>
   );
