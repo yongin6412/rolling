@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import imgUrl from "./imgs/arrow_down.svg";
+import arrowImgUrl from "../../../assets/images/arrow_down.svg";
 import styles from "./EmojiListDropDown.module.scss";
 import { getReactions } from "../../../services/api";
 
@@ -30,7 +30,7 @@ const EmojiListDropDown = ({ recipientId }) => {
       <img
         className={styles.arrow_img}
         onClick={onClickEvent}
-        src={imgUrl}
+        src={arrowImgUrl}
         alt="이모지리스트드롭다운"
       />
       <div className={styles.arrowDrop}>

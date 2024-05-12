@@ -17,8 +17,12 @@ export default function MessageCounterPrint({
     font.text = "regular14";
   }
 
+  // 호버이벤트
+  const handleMouseEnter = (event) => {
+    event.target.style.cursor = "default";
+  };
   return (
-    <Text font={font.count} style={textStyle}>
+    <Text font={font.count} style={textStyle} onMouseEnter={handleMouseEnter}>
       {messageCount}
       <Text font={font.text} style={textStyle}>
         명이 작성했어요!

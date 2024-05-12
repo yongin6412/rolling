@@ -1,6 +1,9 @@
 .emoji_container {
   display: flex;
   gap: 10px;
+  :hover {
+    cursor: default;
+  }
 }
 
 .badge_emoji {
@@ -10,8 +13,20 @@
   justify-content: center;
   align-items: center;
   gap: 3px;
-  background-color: rgba(0, 0, 0, 0.54);
-  color: white;
+  background-color: #0000008a;
+  color: var(--white);
   border: none;
   border-radius: 32px;
+}
+
+.emoji_count {
+  color: var(--white);
+}
+
+.add_message {
+  color: var(--grey-900);
+}
+
+.hidden_message {
+  display: none;
 }

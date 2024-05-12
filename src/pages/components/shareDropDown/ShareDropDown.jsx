@@ -19,7 +19,7 @@ const kakaoButton = () => {
         title: "롤링 프로젝트",
         description: "#코드잇 #10팀 #리액트 #살려줘",
         imageUrl:
-          "https://github-production-user-asset-6210df.s3.amazonaws.com/64190056/328775094-19d8b7d8-0429-40b8-ae41-aa02fce49903.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240508%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240508T061553Z&X-Amz-Expires=300&X-Amz-Signature=0d0de67b30e1a7c16b48600340d35f951a39f9f9b8a4bca4ac76a914b2ae1b83&X-Amz-SignedHeaders=host&actor_id=105802492&key_id=0&repo_id=793432320",
+          "https://private-user-images.githubusercontent.com/64190056/328775094-19d8b7d8-0429-40b8-ae41-aa02fce49903.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTUyMzY3MDQsIm5iZiI6MTcxNTIzNjQwNCwicGF0aCI6Ii82NDE5MDA1Ni8zMjg3NzUwOTQtMTlkOGI3ZDgtMDQyOS00MGI4LWFlNDEtYWEwMmZjZTQ5OTAzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTA5VDA2MzMyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZhMTllMzEzNDYzMTM4NzM0YTQ5OTU0NGJmYzMwZDgyODkzZTQ3NDQwNDJjN2Y1NWQ3M2Q0MTlkN2FjNjQ0NjImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.5GuPi2udTUSSHNeBTZBVCdvV8TrCdpaDD7KJcbquq0A",
         link: {
           mobileWebUrl: "https://developers.kakao.com",
           webUrl: "https://developers.kakao.com",
@@ -85,23 +85,24 @@ const ShareDropDown = () => {
             </div>
           )}
         </div>
+
+        {toast && (
+          <div className={styles.toast_box}>
+            <div className={styles.toast_message}>
+              <img src={completedImg} alt="완료이미지" />
+              URL이 복사 되었습니다.
+            </div>
+            <div>
+              <img
+                className={styles.closebtn}
+                onClick={onCloseBtn}
+                src={closeImg}
+                alt="닫기이미지"
+              />
+            </div>
+          </div>
+        )}
       </div>
-      {toast && (
-        <div className={styles.toast_box}>
-          <div className={styles.toast_message}>
-            <img src={completedImg} alt="완료이미지" />
-            URL이 복사 되었습니다.
-          </div>
-          <div>
-            <img
-              className={styles.closebtn}
-              onClick={onCloseBtn}
-              src={closeImg}
-              alt="닫기이미지"
-            />
-          </div>
-        </div>
-      )}
     </>
   );
 };

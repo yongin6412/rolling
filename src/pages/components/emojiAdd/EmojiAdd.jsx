@@ -1,6 +1,6 @@
 import { postReaction } from "../../../services/api";
 import styles from "./EmojiAdd.module.scss";
-import addImg from "./imgs/add.svg";
+import addImg from "../../../assets/images/add.svg";
 import EmojiPicker from "emoji-picker-react";
 import { useEffect, useState } from "react";
 
@@ -38,11 +38,6 @@ const EmojiAdd = ({ recipientId }) => {
   };
 
   useEffect(() => {
-    const handleWidth = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleWidth);
-
     const handlePostData = async (formData, recipientId) => {
       if (emojiData.emoji === "" || emojiData.type === "") {
         return;
@@ -51,11 +46,18 @@ const EmojiAdd = ({ recipientId }) => {
     };
 
     handlePostData(emojiData, recipientId);
+  }, [emojiData, recipientId]);
+
+  useEffect(() => {
+    const handleWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleWidth);
 
     return () => {
       window.removeEventListener("resize", handleWidth);
     };
-  }, [emojiData, recipientId]);
+  }, []);
 
   return (
     <div className={styles.emoji_container}>
@@ -70,12 +72,7 @@ const EmojiAdd = ({ recipientId }) => {
         )}
       </button>
       <div className={styles.emoji_picker_container}>
-        {emojiShow && (
-          <EmojiPicker
-            onEmojiClick={onEmojiAddClick}
-            className={styles.emoji_picker}
-          />
-        )}
+        {emojiShow && <EmojiPicker onEmojiClick={onEmojiAddClick} />}
       </div>
     </div>
   );

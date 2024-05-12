@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 import MyPaperCardList from "./components/MyPaperCardList";
+import MyPageHeader from "./myPageHeader/MyPageHeader";
 
 function MyPaperPage() {
   const { id } = useParams();
   return (
-    <div className="page-wrapper">
-      <MyPaperCardList id={id} />
-    </div>
+    <>
+      <MyPageHeader />
+      <div className="page-wrapper">
+        <MyPaperCardList id={id} />
+      </div>
+    </>
   );
 }
 
