@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../profileImagePreview/ProfileImagePreview.module.scss";
-function ProfileImagePreview({ messageCount, recentMessages }) {
+function ProfileImagePreview({ messageCount, recentMessages = [] }) {
   let isCountVisibility = false;
   if (messageCount > 3) {
     isCountVisibility = true;

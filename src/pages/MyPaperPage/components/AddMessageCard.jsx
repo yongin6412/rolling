@@ -9,7 +9,7 @@ function AddMessageCard({ id }) {
   };
   return (
     <div className={styles.addMessageCard}>
-      <Link to="/post/${id}/message">
+      <Link to={`/post/${id}/message`}>
         <button className={styles.addButton} onClick={addCard}>
           <img
             className={styles.addButtonImg}

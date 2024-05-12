@@ -109,6 +109,8 @@ export async function deletePaper(recipientId) {
 }
 
 // DELETE : 메시지카드 삭제
-export async function deleteMessage(senderId) {
-  await DELETE(`${BASE_URL}/messages/${senderId}/`);
+export async function deleteMessage(senderIds) {
+  for (const senderId of senderIds) {
+    await DELETE(`${BASE_URL}/messages/${senderId}/`);
+  }
 }

@@ -1,0 +1,36 @@
+.goEditButton {
+  position: fixed;
+  bottom: 40px;
+  right: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grey-300);
+  border: 1px solid var(--grey-300);
+  border-radius: 100px;
+  padding: 14px;
+  font-size: 12px;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .trashIcon {
+    width: 46px;
+    height: 30px;
+    filter: brightness(300%);
+  }
+
+  &:hover {
+    border: 1px solid var(--purple-600);
+    background-color: var(--purple-600);
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1919px) {
+  .goEditButton {
+    right: 40px;
+    padding: 12px;
+  }
+}
