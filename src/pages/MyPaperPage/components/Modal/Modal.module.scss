@@ -153,31 +153,31 @@
 /*mobile*/
 @media (max-width: 767px) {
   .modal {
-    width: 450px;
-    height: 380px;
+    width: 360px;
+    height: 320px;
   }
 
   .messageBorderLine {
-    width: 400px;
+    width: 310px;
   }
 
   .senderInfo {
     .createDate {
       top: 56px;
-      left: 350px;
+      left: 266px;
     }
   }
 
   .senderContent {
-    width: 370px;
+    width: 280px;
 
     .content {
-      height: 180px;
+      height: 120px;
     }
   }
 
   .closeButtonContainer {
     bottom: 20px;
-    left: 168px;
+    left: 120px;
   }
 }

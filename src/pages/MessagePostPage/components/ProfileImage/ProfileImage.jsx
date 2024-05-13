@@ -16,8 +16,9 @@ function ProfileImage({ name, onChange }) {
   ); // fetchData : response JSON
 
   const imageUrls = fetchData.imageUrls;
+  const defaultProfile = imageUrls[0]; // 기본 프로필
 
-  const [selected, setSelected] = useState(imageUrls[0]);
+  const [selected, setSelected] = useState(defaultProfile);
 
   const handleSelectUrl = (e) => {
     const { src } = e.target;
@@ -26,7 +27,8 @@ function ProfileImage({ name, onChange }) {
   };
 
   const handleResetUrl = () => {
-    setSelected(imageUrls[0]);
+    setSelected(defaultProfile);
+    onChange(name, defaultProfile);
   };
 
   return (
@@ -37,7 +39,7 @@ function ProfileImage({ name, onChange }) {
           src={selected}
           className={styles.selectedAvatar}
         />
-        {selected !== imageUrls[0] && ( // 선택된 프로필이 기본 아바타가 아닐 때, 삭제 버튼 보이게 함
+        {selected !== defaultProfile && ( // 선택된 프로필이 기본 프로필이 아닐 때, 삭제 버튼 보이게 함
           <button className={styles.deleteButton} onClick={handleResetUrl}>
             x
           </button>
@@ -49,7 +51,7 @@ function ProfileImage({ name, onChange }) {
           {imageUrls.slice(1).map(
             (
               url,
-              index // 기본아바타 제외한 프로필 배열 목록
+              index // 기본 프로필 제외한 프로필 배열 목록
             ) => (
               <img
                 key={index}
