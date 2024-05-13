@@ -3,12 +3,13 @@ import MyPaperCardList from "./components/MyPaperCardList";
 import styles from "./MyPaperPage.module.scss";
 import editIconUrl from "../../assets/icons/icon-edit.svg";
 import MyPageHeader from "./myPageHeader/MyPageHeader";
+import FadeInOut from "../../components/animation/FadeInOut";
 
 function MyPaperPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   return (
-    <>
+    <FadeInOut>
       <MyPageHeader />
       <div className="page-wrapper">
         <button
@@ -23,7 +24,7 @@ function MyPaperPage() {
         </button>
         <MyPaperCardList id={id} />
       </div>
-    </>
+    </FadeInOut>
   );
 }
 
