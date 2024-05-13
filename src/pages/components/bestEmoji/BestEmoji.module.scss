@@ -17,6 +17,11 @@
   color: var(--white);
   border: none;
   border-radius: 32px;
+
+  @media (max-width: 600px) {
+    width: 53px;
+    height: 28px;
+  }
 }
 
 .emoji_count {

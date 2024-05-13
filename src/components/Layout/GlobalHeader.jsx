@@ -24,7 +24,7 @@ function GlobalHeader() {
         className={!isPostPage ? styles.createButton : styles.hidden} // isPostPage가 false이면 버튼 표시
         onClick={goToPost}
       >
-        <span class={styles.buttonText}>롤링 페이퍼 만들기</span>
+        <span className={styles.buttonText}>롤링 페이퍼 만들기</span>
       </button>
     </div>
   );

@@ -7,7 +7,7 @@ import ProfileImagePreview from "../../components/profileImagePreview/ProfileIma
 import RollingPaperName from "../../components/rollingPaperName/RollingPaperName";
 import styles from "./MyPageHeader.module.scss";
 import { useEffect, useState } from "react";
-import { getRecipientDetail } from "../../../services/api";
+import { getRecipientDetail, postReaction } from "../../../services/api";
 import ShareDropDown from "../../components/shareDropDown/ShareDropDown";
 
 const MyPageHeader = () => {
@@ -18,6 +18,12 @@ const MyPageHeader = () => {
   const getData = async (id) => {
     const data = await getRecipientDetail(id);
     setMyData(data);
+  };
+
+  // Add 컴포넌트에서 이모지를 받아와서 API로 보냄과 동시에 데이터를 받아옴
+  const handlePostEmojiData = async (emoji) => {
+    await postReaction({ emoji: emoji, type: "increase" }, id);
+    await getData(id);
   };
 
   useEffect(() => {
@@ -44,7 +50,10 @@ const MyPageHeader = () => {
           <div className={styles.header}>
             <BestEmoji {...myData} />
             <EmojiListDropDown recipientId={id} />
-            <EmojiAdd recipientId={id} />
+            <EmojiAdd
+              recipientId={id}
+              handlePostEmojiData={handlePostEmojiData}
+            />
             <div className={styles.pole}></div>
             <ShareDropDown />
           </div>
@@ -65,7 +74,10 @@ const MyPageHeader = () => {
           )}
           <BestEmoji {...myData} />
           <EmojiListDropDown recipientId={id} />
-          <EmojiAdd recipientId={id} />
+          <EmojiAdd
+            recipientId={id}
+            handlePostEmojiData={handlePostEmojiData}
+          />
           <div className={styles.pole}></div>
           <ShareDropDown />
         </div>
