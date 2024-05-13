@@ -1,8 +1,8 @@
 import styles from "../SelectBox/SelectBox.module.scss";
-import checkImage from "../../../../assets/images/Enabled.svg";
+import CheckImage from "../../../../assets/images/Enabled.svg";
 
 const Checkbox = ({ id, type, color, image, isChecked, onCheckboxChange }) => {
-  const ColorNumber = (colorName) => {
+  const colorNumber = (colorName) => {
     switch (colorName) {
       case "beige":
         return "#ffe2ad";
@@ -12,28 +12,24 @@ const Checkbox = ({ id, type, color, image, isChecked, onCheckboxChange }) => {
         return "#b1e4ff";
       case "green":
         return "#d0f5c3";
-      default:
-        return "#ffe2ad";
     }
   };
 
-  const ColorStyle = {
-    background: `${ColorNumber(color)}`,
-  };
-
-  const imageStyle = {
-    backgroundImage: image ? `url(${image})` : "none",
-  };
+  const backgroundStyle =
+    type === "color"
+      ? { background: `${colorNumber(color)}` }
+      : { backgroundImage: `url(${image})`, border: "none" };
+  const checkboxStyle = isChecked ? { opacity: 0.6 } : {}; // 선택된 박스에 opacity 적용
 
   return (
     <>
       <label
         htmlFor={id}
         className={`${styles.selectLabel} ${isChecked ? "checked" : ""}`}
-        style={type === "color" ? ColorStyle : imageStyle}
+        style={{ ...backgroundStyle, ...checkboxStyle }}
       >
         {isChecked && (
-          <img className={styles.check} src={checkImage} alt="checked" />
+          <img className={styles.check} src={CheckImage} alt="checked" />
         )}
       </label>
       <input

@@ -1,11 +1,11 @@
-import IntroEmoji from "../../assets/images/Intro_Emoji.png";
-import IntroRollingPaper from "../../assets/images/Intro_RollingPaper.png";
+import IntroEmojiImage from "../../assets/images/Intro_Emoji.png";
+import IntroRollingPaperImage from "../../assets/images/Intro_RollingPaper.png";
 import styles from "./HomePage.module.scss";
 import PrimaryButton from "../../components/UI/PrimaryButton";
 import { useEffect, useRef, useState } from "react";
 
 function HomePage() {
-  function handleClick(e) {
+  function handlePageMove(e) {
     window.location.href = "/list";
   }
 
@@ -52,7 +52,7 @@ function HomePage() {
           </div>
           <div className={styles.intro_image_rolling_container}>
             <img
-              src={IntroRollingPaper}
+              src={IntroRollingPaperImage}
               alt="인트로 롤링페이퍼 이미지"
               className={styles.intro_image_rolling}
               fetchpriority="high"
@@ -72,7 +72,7 @@ function HomePage() {
           </div>
           <div className={styles.intro_image_emoji_container}>
             <img
-              src={IntroEmoji}
+              src={IntroEmojiImage}
               alt="인트로 이모지 이미지"
               className={styles.intro_image_emoji}
               fetchpriority="high"
@@ -81,7 +81,7 @@ function HomePage() {
         </div>
       </section>
       <PrimaryButton
-        onClick={handleClick}
+        onClick={handlePageMove}
         type={"button"}
         WidthMax={widthMax.current}
       >
