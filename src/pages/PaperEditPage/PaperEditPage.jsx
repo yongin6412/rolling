@@ -5,11 +5,13 @@ import MyPaperCardList from "../MyPaperPage/components/MyPaperCardList";
 import styles from "./PaperEditPage.module.scss";
 import PrimaryButton from "../../components/UI/PrimaryButton";
 import MyPageHeader from "../MyPaperPage/myPageHeader/MyPageHeader";
+import useBreakPoint from "../../hooks/useBreakPoint";
 
 function PaperEditPage() {
   const [sendersToDelete, setSendersToDelete] = useState(new Set()); // 삭제할 메시지 id값들을 담은 집합
   const [isDeleteActive, setIsDeleteActive] = useState(false);
   const { id } = useParams();
+  const { isMobile } = useBreakPoint(); // 1920px 이하
   const navigate = useNavigate();
 
   // 롤링페이퍼 삭제
@@ -44,25 +46,32 @@ function PaperEditPage() {
       <MyPageHeader />
       <div className={styles.container}>
         <div className={styles.controlButtons}>
-          <button
-            className={styles.deletePaperButton}
-            onClick={handleDeletePaper}
-          >
-            삭제하기
-          </button>
+          {!isMobile && (
+            <PrimaryButton
+              size={isMobile ? "md" : "sm"}
+              onClick={handleDeletePaper}
+              warning={true}
+            >
+              삭제하기
+            </PrimaryButton>
+          )}
+
           <PrimaryButton
             WidthMax={true}
+            size={isMobile ? "md" : "sm"}
             disable={!isDeleteActive}
             onClick={() => handleDeleteMessage(sendersToDelete)}
           >
             저장
           </PrimaryButton>
-          <button
-            className={styles.backPageButton}
-            onClick={() => navigate(`/post/${id}`)}
-          >
-            돌아가기
-          </button>
+          {!isMobile && (
+            <PrimaryButton
+              size={isMobile ? "md" : "sm"}
+              onClick={() => navigate(`/post/${id}`)}
+            >
+              돌아가기
+            </PrimaryButton>
+          )}
         </div>
 
         <MyPaperCardList

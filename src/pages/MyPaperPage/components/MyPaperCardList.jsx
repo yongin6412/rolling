@@ -1,11 +1,12 @@
 import { MyPaperCard } from "./MyPaperCard";
 import styles from "./MyPaperCardList.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getMessages, getRecipientDetail } from "../../../services/api";
 import AddMessageCard from "./AddMessageCard";
 import Modal from "./Modal/Modal";
+import useFetch from "../../../hooks/useFetch";
 
-const INITIAL_VALUE = {
+const INITIAL_MESSAGE_DATA = {
   sender: "",
   profileImage: null,
   relationship: "",
@@ -13,32 +14,25 @@ const INITIAL_VALUE = {
   font: "",
   createdAt: "",
 };
-const INITIAL_RECIPIENT_VALUE = {
+
+const INITIAL_PAPER_DATA = {
   backgroundColor: "",
   backgroundImageURL: null,
 };
+
 function MyPaperCardList({ id, isAddMessagePossible = true, deleteMessage }) {
-  const [userMessage, setUserMessage] = useState(INITIAL_VALUE);
-  const [recipient, setRecipient] = useState(INITIAL_RECIPIENT_VALUE);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMessage, setSelectedMessage] = useState(null);
-  const onClickButton = (message) => {
+
+  const recipient = useFetch(() => getRecipientDetail(id), INITIAL_PAPER_DATA);
+  const message = useFetch(() => getMessages(id), INITIAL_MESSAGE_DATA);
+
+  const handleClickCard = (message) => {
     setSelectedMessage(message);
     setIsModalOpen(true);
   };
 
-  const handleLoad = async () => {
-    const message = await getMessages(id);
-    setUserMessage(message);
-    const user = await getRecipientDetail(id);
-    setRecipient(user);
-  };
-
-  useEffect(() => {
-    handleLoad();
-  }, []);
-
-  const ColorNumber = (color) => {
+  const setBackgroundColor = (color) => {
     switch (color) {
       case "beige":
         return "#ffe2ad";
@@ -52,7 +46,7 @@ function MyPaperCardList({ id, isAddMessagePossible = true, deleteMessage }) {
   };
 
   const ColorStyle = {
-    background: `${ColorNumber(recipient.backgroundColor)}`,
+    background: `${setBackgroundColor(recipient.backgroundColor)}`,
   };
 
   const imageStyle = {
@@ -62,8 +56,8 @@ function MyPaperCardList({ id, isAddMessagePossible = true, deleteMessage }) {
       : "none",
   };
 
-  const sortedItems = userMessage.results
-    ? userMessage.results.sort(
+  const sortedMessages = message.results
+    ? message.results.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       )
     : [];
@@ -77,13 +71,13 @@ function MyPaperCardList({ id, isAddMessagePossible = true, deleteMessage }) {
         {isAddMessagePossible && (
           <AddMessageCard className={styles.addCard} id={id} />
         )}
-        {sortedItems &&
-          sortedItems.map((result) => (
+        {sortedMessages &&
+          sortedMessages.map((message) => (
             <MyPaperCard
-              className={styles.card}
-              onClick={() => onClickButton(result)}
-              key={result.id}
-              message={result}
+              className={styles.message}
+              onClick={() => handleClickCard(message)}
+              key={message.id}
+              message={message}
               isAddMessagePossible={isAddMessagePossible}
               deleteMessage={deleteMessage}
             />

@@ -6,17 +6,8 @@
     background: var(--purple-700);
   }
 
-  &:focus {
-    background: var(--purple-900);
-    border: 2px solid #5603a7;
-  }
-
   &:disabled {
     background: var(--grey-300);
-  }
-
-  &:pressed {
-    background: var(--purple-800);
   }
 }
 
@@ -46,4 +37,10 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.warningStyle {
+  &:hover {
+    background-color: #d04545;
+  }
 }

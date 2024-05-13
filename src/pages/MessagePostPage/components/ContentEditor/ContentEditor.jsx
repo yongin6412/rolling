@@ -15,6 +15,7 @@ function ContentEditor({ name, onChange }) {
       <Editor
         ref={editorRef}
         initialValue="메시지를 입력하세요."
+        initialEditType="wysiwyg"
         placeholder="메시지를 입력하세요."
         previewStyle="tab"
         height="260px"

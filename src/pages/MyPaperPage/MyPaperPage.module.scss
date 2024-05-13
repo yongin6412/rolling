@@ -1,4 +1,4 @@
-.goEditButton {
+.editButton {
   position: fixed;
   bottom: 40px;
   right: 260px;
@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   background-color: var(--grey-300);
-  border: 1px solid var(--grey-300);
   border-radius: 100px;
   padding: 14px;
   font-size: 12px;
@@ -15,22 +14,22 @@
   cursor: pointer;
   transition: all 0.3s ease;
 
-  .trashIcon {
-    width: 46px;
+  .editIcon {
+    width: 30px;
     height: 30px;
-    filter: brightness(300%);
+    filter: invert(100%);
   }
 
   &:hover {
-    border: 1px solid var(--purple-600);
     background-color: var(--purple-600);
   }
 }
 
 /* Tablet & Mobile */
 @media (max-width: 1919px) {
-  .goEditButton {
-    right: 40px;
+  .editButton {
+    background-color: var(--purple-600);
+    right: 8px;
     padding: 12px;
   }
 }

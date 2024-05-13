@@ -47,6 +47,11 @@ export async function getImages(imgType) {
   return fetchData.imageUrls;
 }
 
+// (임시) GET : 프로필 or 배경 이미지
+export async function getImagesTest(imgType) {
+  return await GET(`${IMG_URL}/${imgType}/`);
+}
+
 export async function getCustomRecipient(url) {
   return await GET(url);
 }

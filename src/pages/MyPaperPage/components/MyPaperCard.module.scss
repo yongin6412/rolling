@@ -4,7 +4,7 @@
   height: 280px;
   border-radius: 16px;
   background-color: var(--white);
-  box-shadow: 0px 2px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.02, 1.02);
@@ -150,6 +150,9 @@
   }
   .trashIconButton {
     left: 290px;
+  }
+  .hr {
+    width: 300px;
   }
 }
 /*mobile*/

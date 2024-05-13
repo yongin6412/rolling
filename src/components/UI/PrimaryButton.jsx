@@ -15,15 +15,17 @@ function PrimaryButton({
   type = "submit",
   disable = false,
   WidthMax = false,
+  warning = false,
   children,
   onClick,
 }) {
   const boxSize = Size[size];
   const fullWidth = WidthMax ? styles.fullWidth : "";
+  const warningStyle = warning ? styles.warningStyle : "";
 
   return (
     <button
-      className={`${styles.button} ${boxSize} ${fullWidth}`}
+      className={`${styles.button} ${boxSize} ${fullWidth} ${warningStyle}`}
       type={type}
       disabled={disable}
       onClick={onClick}

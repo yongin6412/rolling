@@ -9,7 +9,7 @@ export function formatDate(value) {
   }.${date.getDate() + 1 > 9 ? date.getDate() : "0" + date.getDate()}`;
 }
 
-export function setRelationship(relationship) {
+function setRelationship(relationship) {
   switch (relationship) {
     case "친구":
       return styles.blue;

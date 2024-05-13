@@ -1,11 +1,25 @@
 import styles from "./Modal.module.scss";
 import PrimaryButton from "../../../../components/UI/PrimaryButton";
-import { formatDate, setRelationship, setFont } from "../MyPaperCard";
+import { formatDate, setFont } from "../MyPaperCard";
+
+function setRelationship(relationship) {
+  switch (relationship) {
+    case "친구":
+      return styles.blue;
+    case "지인":
+      return styles.orange;
+    case "가족":
+      return styles.green;
+    case "동료":
+      return styles.purple;
+  }
+}
 
 function Modal({ onClose, message }) {
   const handleClose = () => {
     onClose?.();
   };
+
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>

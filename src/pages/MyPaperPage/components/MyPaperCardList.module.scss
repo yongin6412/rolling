@@ -29,7 +29,7 @@ body {
 /*tablet*/
 @media (max-width: 1199px) {
   .cardList {
-    top: 161px;
+    top: 180px;
     grid-template-columns: repeat(2, 352px);
     grid-gap: 16px 16px;
   }
@@ -37,7 +37,7 @@ body {
 /*mobile*/
 @media (max-width: 767px) {
   .cardList {
-    top: 82px;
+    top: 170px;
     grid-template-columns: repeat(1, 352px);
     grid-gap: 16px 16px;
   }
