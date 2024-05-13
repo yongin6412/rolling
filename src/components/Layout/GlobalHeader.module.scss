@@ -11,6 +11,10 @@
 }
 .headerLogo {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin: 16px;
   left: 356px;
   width: 106px;
@@ -73,13 +77,23 @@
   display: none;
 }
 
+.themeButton {
+  position: absolute;
+  right: 534px;
+  width: 30px;
+  top: 16px;
+}
+
 /*tablet*/
-@media (max-width: 1199px) {
+@media (max-width: 1919px) {
   .headerLogo {
     left: 24px;
   }
   .createButton {
     right: 24px;
+  }
+  .themeButton {
+    right: 200px;
   }
 }
 /*mobile*/
@@ -89,5 +103,9 @@
   }
   .createButton {
     right: 16px;
+    height: 40px;
+  }
+  .themeButton {
+    right: 190px;
   }
 }

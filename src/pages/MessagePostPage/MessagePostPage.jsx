@@ -3,7 +3,7 @@ import MessagePostForm from "./components/MessagePostForm";
 
 function MessagePostPage() {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper dark-message-form">
       <FadeInOut>
         <MessagePostForm />
       </FadeInOut>

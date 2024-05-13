@@ -70,7 +70,10 @@ const ShareDropDown = () => {
   return (
     <>
       <div className={styles.share_container}>
-        <button className={styles.share_btn} onClick={onClickShow}>
+        <button
+          className={`${styles.share_btn} dark-share-container`}
+          onClick={onClickShow}
+        >
           <img src={shareImg} alt="공유이미지" />
         </button>
         <div className={styles.outside_container}>

@@ -3,7 +3,7 @@ import PaperPostForm from "./components/PaperPostForm";
 
 function PaperPostPage() {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper dark-paper-post">
       <FadeInOut>
         <PaperPostForm />
       </FadeInOut>

@@ -9,7 +9,7 @@ const RollingPaperName = ({ name, backgroundImage, isPhone }) => {
   }
   const textStyle = backgroundImage ? { color: "#fff" } : {};
   return (
-    <Text font={font} style={textStyle}>
+    <Text font={font} style={textStyle} darkTheme="dark-text">
       To. {name}
     </Text>
   );

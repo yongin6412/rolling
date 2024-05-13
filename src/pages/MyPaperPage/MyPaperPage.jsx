@@ -11,7 +11,7 @@ function MyPaperPage() {
   return (
     <FadeInOut>
       <MyPageHeader />
-      <div className="page-wrapper">
+      <div>
         <button
           className={styles.editButton}
           onClick={() => navigate(`/post/${id}/edit`)}

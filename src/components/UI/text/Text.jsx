@@ -17,10 +17,14 @@ const styleMap = {
   regular12: styles.Regular12,
 };
 
-const Text = ({ font, style, children, onMouseEnter }) => {
+const Text = ({ font, style, children, onMouseEnter, darkTheme }) => {
   const className = styleMap[font];
   return (
-    <span className={className} style={style} onMouseEnter={onMouseEnter}>
+    <span
+      className={`${className} ${darkTheme}`}
+      style={style}
+      onMouseEnter={onMouseEnter}
+    >
       {children}
     </span>
   );

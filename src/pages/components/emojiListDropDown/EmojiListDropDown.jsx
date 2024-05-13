@@ -33,7 +33,7 @@ const EmojiListDropDown = ({ recipientId }) => {
     <div>
       <img
         ref={listDropDownRef}
-        className={styles.arrow_img}
+        className={`${styles.arrow_img} dark-emoji-dropdown`}
         onClick={handleListShow}
         src={arrowImgUrl}
         alt="이모지리스트드롭다운"

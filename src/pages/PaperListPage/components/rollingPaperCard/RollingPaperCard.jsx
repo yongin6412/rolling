@@ -19,6 +19,7 @@ function RollingPaperCard({
       ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54)), url(${backgroundImage})`
       : {},
     backgroundSize: backgroundImage ? "cover" : {},
+    border: backgroundImage ? "none" : undefined,
   };
 
   return (

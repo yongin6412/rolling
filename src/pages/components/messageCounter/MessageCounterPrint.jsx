@@ -22,9 +22,14 @@ export default function MessageCounterPrint({
     event.target.style.cursor = "default";
   };
   return (
-    <Text font={font.count} style={textStyle} onMouseEnter={handleMouseEnter}>
+    <Text
+      font={font.count}
+      style={textStyle}
+      onMouseEnter={handleMouseEnter}
+      darkTheme="dark-text"
+    >
       {messageCount}
-      <Text font={font.text} style={textStyle}>
+      <Text font={font.text} style={textStyle} darkTheme="dark-text">
         명이 작성했어요!
       </Text>
     </Text>

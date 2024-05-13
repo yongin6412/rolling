@@ -50,7 +50,7 @@ function MessagePostForm() {
     <div className={styles.container}>
       <form onSubmit={handleFormSubmit} className={styles.form}>
         <div>
-          <h2>From.</h2>
+          <h2 className="message-post-titles">From.</h2>
           <input
             name="sender"
             type="text"

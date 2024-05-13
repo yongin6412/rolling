@@ -15,7 +15,7 @@ function PaperListPage() {
 
   return (
     <FadeInOut>
-      <div className={styles.container}>
+      <div className={`${styles.container} dark-list-page`}>
         <div className={styles.hot}>
           <h1 className={styles.h1}>인기 롤링 페이퍼 🔥</h1>
           <CardList
