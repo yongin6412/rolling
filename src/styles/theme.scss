@@ -11,10 +11,6 @@ $dark-text: #ffffff;
   @include transition();
 }
 
-/* Light Style */
-.light-mode {
-}
-
 /* Dark Style */
 .dark-mode {
   background-color: $dark-background;
