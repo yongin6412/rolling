@@ -1,6 +1,7 @@
 {
   "short_name": "Rolling",
-  "name": "Rolling Web Service",
+  "name": "누구나 쉽게 만들 수 있는 온라인 롤링페이퍼, Rolling",
+  "description": "누구나 쉽게 만들 수 있는 온라인 롤링페이퍼, Rolling",
   "icons": [
     {
       "src": "favicon.ico",
