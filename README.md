@@ -11,9 +11,10 @@
 <br/>
 
 ## 🚩 Link
-<a href="https://rolling-sprint.vercel.app/"><img src="https://github.com/rolling-sprint/rolling/assets/64190056/f66bf8d2-f8f6-4eb1-8469-d18a7f356cbf" width=120 /></a>  | <a href="https://rolling-sprint.vercel.app/"><img src="https://github.com/rolling-sprint/rolling/assets/64190056/20f1ae37-d6cb-4198-8a04-79caefbe5316" width=40 /></a> 
+<a href="https://rolling-sprint.vercel.app/"><img src="https://github.com/rolling-sprint/rolling/assets/64190056/f66bf8d2-f8f6-4eb1-8469-d18a7f356cbf" width=120 /></a>  | <a href="https://sprint-part2-10.notion.site/Rolling-e0ec29ff878c43a29ad085250d0d2be8?pvs=4"><img src="https://github.com/rolling-sprint/rolling/assets/64190056/20f1ae37-d6cb-4198-8a04-79caefbe5316" width=40 /></a> 
 :---: | :---: 
 **배포 사이트** | **협업 노션**
+
 
 <br/>
 
