@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-import PaperListPage from "./pages/PaperListPage/PaperListPage";
-import PaperPostPage from "./pages/PaperPostPage/PaperPostPage";
-import MyPaperPage from "./pages/MyPaperPage/MyPaperPage";
-import PaperEditPage from "./pages/PaperEditPage/PaperEditPage";
-import MessagePostPage from "./pages/MessagePostPage/MessagePostPage";
-import GlobalHeader from "./components/Layout/GlobalHeader";
+import HomePage from "pages/home/HomePage";
+import PaperListPage from "pages/paper-list/PaperListPage";
+import PaperPostPage from "pages/paper-post/PaperPostPage";
+import MyPaperPage from "pages/my-paper/MyPaperPage";
+import PaperEditPage from "pages/paper-edit/PaperEditPage";
+import MessagePostPage from "pages/message-post/MessagePostPage";
+import GlobalHeader from "components/layout/GlobalHeader";
 import "./styles/theme.scss";
 
 function App() {
