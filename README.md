@@ -1,6 +1,6 @@
 # Rolling
-**`코드잇 부트캠프 스프린트 프론트엔드 6기 : Part2 10팀 1차 프로젝트`**
-![image](https://github.com/wayandway/rolling/assets/64190056/ed53ea87-0f42-4dbf-bea4-852550ec51b2)
+**`코드잇 스프린트 프론트엔드 6기 : Part2 10팀 1차 프로젝트`**
+![image](https://github.com/user-attachments/assets/30c1f427-14fe-4947-a08c-0c3bb6d2749c)
 
 - **배포 URL** : https://rolling-sprint.vercel.app/
 - **프로젝트 노션** : https://sprint-part2-10.notion.site/Rolling-e0ec29ff878c43a29ad085250d0d2be8?pvs=4
