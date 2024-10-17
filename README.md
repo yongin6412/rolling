@@ -4,6 +4,7 @@
 
 - **배포 URL** : https://rolling-sprint.vercel.app/
 - **프로젝트 노션** : https://sprint-part2-10.notion.site/Rolling-e0ec29ff878c43a29ad085250d0d2be8?pvs=4
+- **시연 영상** : https://www.youtube.com/watch?v=V1UOuKiLXPQ
 
 
 <br/>
